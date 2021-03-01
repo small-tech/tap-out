@@ -7,7 +7,6 @@ var util = require('util');
 var EventEmitter = require('events').EventEmitter;
 var reemit = require('re-emitter');
 
-var expr = require('./lib/utils/regexes');
 var parseLine = require('./lib/parse-line');
 var error = require('./lib/error');
 
