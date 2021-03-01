@@ -12,7 +12,7 @@ npm install @small-tech/tap-out
 
 ## Usage
 
-**CLI**
+### CLI
 
 ```
 $ something-that-produces-tap | npx tap-out
@@ -37,7 +37,7 @@ $ something-that-produces-tap | npx tap-out
 }
 ```
 
-**API**
+### API
 
 ```js
 var tapOut = require('tap-out');
