@@ -1,11 +1,13 @@
 # tap-out
 
-A different tap parser
+A different tap parser.
 
-## Install
+This is a fork of https://github.com/scottcorgan/tap-out maintained by [Aral Balkan](https://ar.al) at [Small Technology Foundation](https://small-tech.org).
+
+## Installation
 
 ```
-npm install tap-out --save
+npm install @small-tech/tap-out
 ```
 
 ## Usage
@@ -13,7 +15,7 @@ npm install tap-out --save
 **CLI**
 
 ```
-$ something-that-produces-tap | tap-out
+$ something-that-produces-tap | npx tap-out
 {
   tests: [
     { name: 'is true', number: 1, raw: '# is true', type: 'test' }
@@ -41,13 +43,11 @@ $ something-that-produces-tap | tap-out
 var tapOut = require('tap-out');
 
 var t = tapOut(function (output) {
-
   console.log(output);
 });
 
 t.on('assert', function (assert) {
-
-	// Do something
+  // Do something
 });
 
 process.stdin.pipe(t);
@@ -207,10 +207,22 @@ Generic output like `console.log()` in your tests.
 }
 ```
 
+## Install from source
+
+```sh
+git clone git@github.com:small-tech/tap-out.git
+cd tap-out
+npm install
+```
+
 ## Run Tests
 
-```
-git clone git@github.com:scottcorgan/tap-out.git && cd tap-out
-npm install
+```sh
 npm test
+```
+
+### Run coverage
+
+```sh
+npm run coverage
 ```
