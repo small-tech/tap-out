@@ -1,24 +1,41 @@
 {
   "name": "tap-out",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "A different tap parser",
   "main": "index.js",
   "scripts": {
-    "test": "tape test/index.js"
+    "test": "tape test/index.js | tap-spec",
+    "coverage": "c8 tape test/index.js | tap-nyc"
   },
   "bin": {
     "tap-out": "bin/cmd.js"
   },
-  "author": "Scott Corgan",
+  "contributors": [
+    "Scott Corgan",
+    "Aral Balkan",
+    "Ram Damera",
+    "Aranđel Šarenac",
+    "Stephen Hess",
+    "Matt Searle",
+    "Megan Holmes",
+    "thisconnect",
+    "Matthew Dunsdon",
+    "Amir Mikhak",
+    "James Talmage",
+    "shinnn",
+    "Matt DesLauriers",
+    "Jake Verbaten"
+  ],
   "license": "MIT",
   "dependencies": {
-    "re-emitter": "1.1.3",
-    "readable-stream": "2.2.9",
-    "split": "1.0.0",
-    "trim": "0.0.1"
+    "re-emitter": "1.1.4",
+    "split": "1.0.1"
   },
   "devDependencies": {
-    "tape": "4.6.3"
+    "c8": "^7.6.0",
+    "tap-nyc": "^1.0.3",
+    "tap-spec": "^5.0.0",
+    "tape": "5.2.1"
   },
   "directories": {
     "test": "test"
