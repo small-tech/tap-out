@@ -2,13 +2,14 @@
 
 var PassThrough = require('stream').PassThrough;
 var split = require('split');
-var trim = require('trim');
 var util = require('util');
 var EventEmitter = require('events').EventEmitter;
 var reemit = require('re-emitter');
 
 var parseLine = require('./lib/parse-line');
 var error = require('./lib/error');
+
+function trim (str) { return str.trim() }
 
 function Parser() {
   if (!(this instanceof Parser)) {
