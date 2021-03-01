@@ -1,6 +1,6 @@
 'use strict';
 
-var PassThrough = require('readable-stream/passthrough');
+var PassThrough = require('stream').PassThrough;
 var split = require('split');
 var trim = require('trim');
 var util = require('util');
