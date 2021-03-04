@@ -28,6 +28,7 @@ function Parser() {
     pass: [],
     fail: [],
     errors: [],
+    bailOuts: [],
   };
   this.testNumber = 0;
 
@@ -241,7 +242,7 @@ module.exports = function (done) {
   var stream = new PassThrough();
   var parser = Parser();
   reemit(parser, stream, [
-    'test', 'assert', 'version', 'result', 'pass', 'fail', 'comment', 'plan'
+    'test', 'assert', 'version', 'result', 'pass', 'fail', 'comment', 'plan', 'bailOut'
   ]);
 
   var write = stream.write;
