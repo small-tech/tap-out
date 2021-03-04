@@ -1,6 +1,6 @@
+const types = require('../lib/types')
 const parser = require('../')
 const test = require('tape')
-const bailOut = require('../lib/bail-out')
 
 test('output event', function (t) {
 
@@ -866,4 +866,9 @@ test('results with test containing #+word+number', function(t) {
   })
 
   p.end()
+})
+
+test('types', function (t) {
+  t.false(types.is('unknownType', 'some line'), 'unknown type should return false')
+  t.end()
 })
