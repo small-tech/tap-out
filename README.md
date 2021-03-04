@@ -33,16 +33,17 @@ $ something-that-produces-tap | npx tap-out
     { name: 'true value', number: 2, ok: true, raw: 'ok 2 true value', test: 1, type: 'assert' }
   ],
   fail: [],
-  errors: []
+  errors: [],
+  bailOuts: []
 }
 ```
 
 ### API
 
 ```js
-var tapOut = require('tap-out');
+const tapOut = require('tap-out');
 
-var t = tapOut(function (output) {
+const t = tapOut(function (output) {
   console.log(output);
 });
 
@@ -55,7 +56,7 @@ process.stdin.pipe(t);
 
 ## Methods
 
-### var t = tapOut(function (err, output) {})
+### const t = tapOut(function (err, output) {})
 
 Returns a stream that emits events with various TAP data. Takes a callback which is called when all parsing is done.
 
@@ -190,6 +191,14 @@ Parsed assertion that has passed with details. The assertion formate is the same
 ### t.on('fail', function (assertion) {})
 
 Failed assertion that has passed with details. The assertion formate is the same as the [`assert`](#tonassert-function-assertion-) event.
+
+### t.on('bailOut', function (event) {})
+
+Signals that a test script has decided that further tests are useless. Your tap consumer should display the bail out notice and reason and exit.
+
+* `type` - this will always be `bailOut`
+* `raw` - the raw output before it was parsed (this is in the form “Bail out! [reason]”).
+* `name` - the reason, if any, provided for the bail out.
 
 ### t.on('comment', function (comment) {})
 

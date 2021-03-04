@@ -4,9 +4,22 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [3.1.0] First post-fork release
+## [3.2.0] - 2021-03-04
 
-Bug fixes, dependency updates, and code coverage.
+Bail out!
+
+## Added
+
+  - `bailOut` event
+
+## Changed
+
+  - Updated to modern JavaScript
+  - Updated code formatting
+
+## [3.1.0] - 2021-03-01
+
+First post-fork release: bug fixes, dependency updates, and code coverage.
 
 ### Fixed
 
@@ -41,6 +54,8 @@ Dev-dependencies:
   - List of contributors based on pull requests.
   - Code coverage via c8 and tap-nyc.
 
-## [3.0.0] Last pre-fork release
+## [3.0.0] - 2018-06-05
+
+Last pre-fork release
 
 See https://github.com/scottcorgan/tap-out
