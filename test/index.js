@@ -1,5 +1,6 @@
 const parser = require('../')
 const test = require('tape')
+const bailOut = require('../lib/bail-out')
 
 test('output event', function (t) {
 
@@ -472,6 +473,31 @@ test('generic output', function (t) {
   p.end()
 })
 
+test('bail-outs', function (t) {
+  t.plan(3)
+
+  const bailOutReason = 'This is why we bailed out.'
+  const bailOutRaw = 'Bail out! ' + bailOutReason
+
+  const mockTap = [
+    "TAP version 13",
+    bailOutRaw
+  ]
+
+  const p = parser()
+
+  p.on('bailOut', function (event) {
+    t.strictEquals(event.type, 'bailOut')
+    t.strictEquals(event.raw, bailOutRaw)
+    t.strictEquals(event.reason, bailOutReason)
+  })
+
+  mockTap.forEach(function (line) {
+    p.write(line + '\n')
+  })
+  p.end()
+})
+
 test('handles HTTP error source', function (t) {
 
   t.plan(1)
@@ -506,7 +532,6 @@ test('handles HTTP error source', function (t) {
   })
 
   mockTap.forEach(function (line) {
-
     p.write(line + '\n')
   })
   p.end()
